@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+     <title>Quiz App</title>
+     <meta name="viewport" content="width=device-width, initial-">
+     <meta charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='/css/style.css')}}">
+</head>
+<body>
+  <div class="hello-quiz">
+      <h1>Приветсвия от FlQuiz App</h1>
+
+      <div class="quiz-content">
+            <form class="quiz-form" id="quiz-main-form" action="/quiz-results" method="POST">
+                {% for question in questions %}
+                    <h3>{{ question[0] }}</h3>
+                    <img src="{{ question[6] }}" width="128" height="72">
+                    <div class="inputs-quiz-input">
+                        <input value="{{ question[1] }}" name="{{ question[0] }}" type="radio">{{ question[1] }}</input>
+                        <input value="{{ question[2] }}" name="{{ question[0] }}" type="radio">{{ question[2] }}</input>
+                        <input value="{{ question[3] }}" name="{{ question[0] }}" type="radio">{{ question[3] }}</input>
+                        <input value="{{ question[4] }}" name="{{ question[0] }}" type="radio">{{ question[4] }}</input>
+                    </div>
+                {% endfor %}
+                <button class="next" id="send-form-quiz" type="submit">Send Form</button>
+                <button class="next" type="button" onclick="window.location.href='/calc'">Calculate Results</button>
+            </form>
+<!--            <script>-->
+<!--                var buttons = document.querySelector(#send-form-quiz);-->
+<!--                var form = document.getElementById("quiz-main-form");-->
+<!--                buttons.addEventListener("click", function () {-->
+<!--                    var selectedValues = [];-->
+<!--                    var radioInputs = document.querySelectorAll('input[type="radio"]:checked');-->
+
+<!--                    radioInputs.forEach(function(input) {-->
+<!--                      selectedValues.push(input.value);-->
+<!--                    });-->
+
+<!--                    form.submit();-->
+<!--                });-->
+<!--            </script>-->
+        </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+     <title>Quiz App Calculating</title>
+     <meta name="viewport" content="width=device-width, initial-">
+     <meta charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='/css/style.css')}}">
+</head>
+<body>
+      <div class="calculator">
+          <form action="/calculated" method="POST">
+              <input type="text" id="result" readonly>
+              <div class="buttons">
+                <button type="button" onclick="clearResult()">C</button>
+                <button type="button" onclick="appendValue('7')">7</button>
+                <button type="button" onclick="appendValue('8')">8</button>
+                <button type="button" onclick="appendValue('9')">9</button>
+                <button type="button" onclick="appendValue('/')">/</button>
+                <button type="button" onclick="appendValue('4')">4</button>
+                <button type="button" onclick="appendValue('5')">5</button>
+                <button type="button" onclick="appendValue('6')">6</button>
+                <button type="button" onclick="appendValue('*')">*</button>
+                <button type="button" onclick="appendValue('1')">1</button>
+                <button type="button" onclick="appendValue('2')">2</button>
+                <button type="button" onclick="appendValue('3')">3</button>
+                <button type="button" onclick="appendValue('-')">-</button>
+                <button type="button" onclick="appendValue('0')">0</button>
+                <button type="button" onclick="appendValue('.')">.</button>
+                <button type="submit" onclick="calculate()">=</button>
+                <button type="button" onclick="appendValue('+')">+</button>
+                <button type="button" onclick="appendValue('**')">aⁿ</button>
+                  <button type="button" onclick="appendValue('sin')">sin a</button>
+                  <button type="button" onclick="appendValue('cos')">cos a</button>
+                  <button type="button" onclick="appendValue('tg')">tg</button>
+                  <button type="button" onclick="appendValue('ctg')">ctg</button>
+                  <button type="button" onclick="appendValue('ctg')">arcsin</button>
+                  <button type="button" onclick="appendValue('ctg')">arccos</button>
+                  <button type="button" onclick="appendValue('ctg')">arctg</button>
+                  <button type="button" onclick="appendValue('ctg')">arcctg</button>
+
+              </div>
+          </form>
+          <script type="text/javascript">
+              function clearResult() {
+                    var result = document.getElementById("result");
+                    result.value = "";
+              }
+              function appendValue(value) {
+                  var result = document.getElementById("result");
+                  if (value == '*') {
+                      if (result.value.charAt(result.value.length - 1) != '*') {
+                        result.value += "*"
+                      }
+                  }
+                  else if (value == '+') {
+                      if (result.value.charAt(result.value.length - 1) != '+') {
+                        result.value += "+"
+                      }
+                  }
+                  else if (value == '-') {
+                      if (result.value.charAt(result.value.length - 1) != '-') {
+                        result.value += "-"
+                      }
+                  }
+                  else if (value == '/') {
+                      if (result.value.charAt(result.value.length - 1) != '/') {
+                        result.value += "/"
+                      }
+                  }
+                  else if (value == '.') {
+                      if (result.value.charAt(result.value.length - 1) != '.') {
+                        result.value += "."
+                      }
+                  }
+                  else {
+                    result.value += value
+                  }
+              }
+          </script>
+        </div>
+
+</body>
+</html>
